@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "ValidationTest";
+}
+
+
+<script src="~/Validation/Verify.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="~/Validation/Verify.css" rel="stylesheet" />
+
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3>Validation Samples</h3>
+    </div>
+    <form action="/HumanResource/HrMovement/HrMovementRequest">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label> Text</label>
+                        <input type="text" class="SvText SvForm1 form-control" svminlen="3" svmaxlen="10" svmessage="Invalid text" placeholder="Enter Text" />
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label> Number</label>
+                        <input type="text" class="SvNumber SvForm1 form-control" svminlen="3" id="number" svmaxlen="10" svmessage="Invalid number" placeholder="Enter Number" />
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label> Email</label>
+                        <input type="text" class="SvEmail SvForm1 form-control" svminlen="3" id="email" svmaxlen="30" svmessage="Invalid EmailId" placeholder="Enter Email" />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Mobile</label>
+                        <input type="text" class="SvMobile SvForm1 form-control" svminlen="10" id="mobile" svmaxlen="10" svmessage="Invalid mobile number" placeholder="Enter Mobile" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>AlphaNumeric</label>
+                        <input type="text" class="SvAlphaNumeric SvForm1 form-control" svminlen="2" id="alphanumeric" svmaxlen="10" svmessage="Invalid AlphaNumeric" placeholder="Enter AlphaNumeric" />
+                    </div>
+
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Dropdown</label>
+                        <select class="SvSelect SvForm1 form-control" id="select" svmessage="Please select car">
+                            <option value="0">Select Car</option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label>MultiLine</label>
+                        <textarea name="Text1" class="SvText SvForm1 form-control" id="multiline" svminlen="2" id="multiline" svmaxlen="10" svmessage="Please enter Proper Something" cols="40" rows="5"></textarea>
+                    </div>
+                    <!-- /.form-group -->
+
+
+                    <div class="form-group">
+                        <label>Custom Regex</label>
+                        <input type="text" class="SvRegex SvForm1 form-control" id="customregex" svregex="^[0-9]*$" svminlen="2" svmaxlen="10" svmessage="Please enter proper Something" placeholder="Enter Something" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required</label>
+                        <input type="text" class="SvAnything SvForm1 form-control" id="anything" svminlen="2" svmaxlen="10" svmessage="Please enter anything" placeholder="Enter anything" />
+                    </div>
+
+
+                </div>
+                <!-- /.col -->
+
+                <div class="col-md-4">
+
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label>Range</label>
+                        <input type="text" class="SvRange SvForm1 form-control" svranges="5\-10" id="range" svmaxlen="10" svmessage="Does not fit into range" placeholder="jeez.. Working on It " />
+                    </div>
+                    <!-- /.form-group -->
+
+                </div>
+
+            </div>
+
+
+
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <input type="submit" value="submit " id="submit" class="SvForm1 SvValidate btn btn-success pull-right" />
+        </div>
+
+    </form>
+
+</div>
+
+
+@*<div>
+        Ajax Form Submit
+        <br /><br /><br />
+        for text only<br />
+        <input type="text" class="SvText SvForm2" svminlen="3" id="text2" svmaxlen="10" svmessage="Please enter text" placeholder="Enter Name" />
+
+        <br /><br /><br />
+        for number only<br />
+        <input type="text" class="SvNumber SvForm2" svminlen="3" id="number2" svmaxlen="10" svmessage="Please enter number" placeholder="Enter Number" />
+
+        <br /><br /><br />
+
+
+        <input type="submit" value="submit" id="SubmitAjax" class="SvForm2 SvValidate" />
+
+
+
+
+    </div>*@
+<script>
+
+    $("#SubmitAjax").click(function () {
+        debugger;
+        if ((this).attr("svisvalidated") === 'true') {
+            alert(64564);
+            $.post("ajax/test.html", function (data) {
+                alert("i am here")
+            })
+
+        }
+
+    });
+
+
+</script>
